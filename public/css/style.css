@@ -1,0 +1,27 @@
+.header {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+}
+
+.leftbar {
+    width: 20%;
+    float: left;
+    padding: 10px;
+    background-color: #ccc;
+    height: 400px;
+}
+
+.main {
+    width: 60%;
+    float: left;
+    padding: 10px;
+    height: 400px;
+}
+
+.footer {
+    clear: both;
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+}
