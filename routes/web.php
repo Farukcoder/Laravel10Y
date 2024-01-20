@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DealerController;
 use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
@@ -83,4 +85,25 @@ Route::get('/chank', [ClientController::class, 'chankData']);
 
 Route::get('/raw_data', [ClientController::class, 'rawData']);
 
-Route::resource('employee', EmployeeController::class);
+//with route name
+//Route::resource('employees', EmployeeController::class)->only([
+//    'create','index','store',
+//]);
+
+//without all route name
+//Route::resource('employees', EmployeeController::class)->except([
+//    'create','index','store',
+//]);
+
+
+Route::resource('employees', EmployeeController::class)->names([
+    'create' => 'employees.build',
+    'index' => 'employees.index'
+]);
+
+Route::get('/products', function () {
+   return \App\Models\Product::all();
+});
+
+Route::resource('brands', BrandController::class);
+Route::resource('dealers', DealerController::class);

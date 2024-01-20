@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
             UpazilasSeeder::class,
             TodonewSeeder::class,
             EmployeeSeeder::class,
+            BrandSeeder::class,
+            DealerSeeder::class,
         ]);
     }
 }
