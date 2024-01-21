@@ -16,8 +16,8 @@ class DealerSeeder extends Seeder
         for ($i = 1; $i < 11; $i++) {
             Dealer::create([
                 'brand_id' => "$i",
-                'name' => "Brand name $i",
-                'description' => "Brand Description $i",
+                'name' => "Dealer name $i",
+                'description' => "Dealer Description $i",
                 'location' => "Location $i",
             ]);
         }

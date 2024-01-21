@@ -11,6 +11,11 @@ class Dealer extends Model
 
     public function brand()
     {
-        return $this->belongsTo(Brand::class);
+        return $this->belongsTo(Brand::class, 'brands_dealers');
+    }
+
+    public function belongsToManyBrand()
+    {
+        return $this->belongsToMany(Dealer::class, 'brands_dealers');
     }
 }

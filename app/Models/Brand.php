@@ -13,4 +13,14 @@ class Brand extends Model
     {
         return $this->hasOne(Dealer::class, 'brand_id', 'id');
     }
+
+    public function meanyDealer()
+    {
+        return $this->hasMany(Dealer::class, 'brand_id', 'id');
+    }
+
+    public function belongsToManyDealer()
+    {
+        return $this->belongsToMany(Dealer::class, 'brands_dealers');
+    }
 }

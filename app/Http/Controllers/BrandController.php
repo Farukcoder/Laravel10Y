@@ -16,6 +16,17 @@ class BrandController extends Controller
         return $data;
     }
 
+    public function belongsTodata()
+    {
+        $data = Brand::with('meanyDealer')->get();
+        return $data;
+    }
+
+    public function belongsToManyBrand()
+    {
+        $data = Brand::with('belongsToManyDealer')->get();
+        return $data;
+    }
     /**
      * Show the form for creating a new resource.
      */

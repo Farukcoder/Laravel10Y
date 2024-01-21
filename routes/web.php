@@ -106,4 +106,6 @@ Route::get('/products', function () {
 });
 
 Route::resource('brands', BrandController::class);
+Route::get('/belongsTodata', [BrandController::class, 'belongsTodata']);
+Route::get('/belongsToManyBrand', [BrandController::class, 'belongsToManyBrand']);
 Route::resource('dealers', DealerController::class);
