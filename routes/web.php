@@ -3,7 +3,9 @@
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DealerController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\TestController;
@@ -109,3 +111,8 @@ Route::resource('brands', BrandController::class);
 Route::get('/belongsTodata', [BrandController::class, 'belongsTodata']);
 Route::get('/belongsToManyBrand', [BrandController::class, 'belongsToManyBrand']);
 Route::resource('dealers', DealerController::class);
+
+Route::resource('departments',DepartmentController::class);
+Route::get('/manyTeacher', [DepartmentController::class, 'manyTeacher']);
+Route::get('/manyToManyTeacher', [DepartmentController::class, 'manyToManyTeacher']);
+

@@ -27,6 +27,8 @@ class DatabaseSeeder extends Seeder
             EmployeeSeeder::class,
             BrandSeeder::class,
             DealerSeeder::class,
+            DepartmentSeeder::class,
+            TeacherSeeder::class,
         ]);
     }
 }
