@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class upazilas extends Model
 {
     use HasFactory;
+
+    protected $table = 'upazilas';
+
 }

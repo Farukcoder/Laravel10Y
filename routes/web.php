@@ -6,6 +6,8 @@ use App\Http\Controllers\DealerController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\TodoController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\TestController;
@@ -23,7 +25,9 @@ use App\Http\Controllers\TodonewController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $users = User::all();
+
+    return view('welcome', compact('users'));
 });
 
 
@@ -115,4 +119,6 @@ Route::resource('dealers', DealerController::class);
 Route::resource('departments',DepartmentController::class);
 Route::get('/manyTeacher', [DepartmentController::class, 'manyTeacher']);
 Route::get('/manyToManyTeacher', [DepartmentController::class, 'manyToManyTeacher']);
+
+Route::get('/viewDivision', [TodoController::class, 'index']);
 

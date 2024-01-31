@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\division;
 use App\Models\Todo;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TodoController extends Controller
@@ -10,9 +12,24 @@ class TodoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $upazilas = division::where('id', 1)->with('upazilas')->get()->toArray();
+        echo "<pre>";
+        print_r($upazilas);
+        exit;
+        $divisions = division::get();
+
+
+
+
+
+        return view('divisions', compact('divisions'));
+    }
+
+    public function viewUserInfo()
+    {
+
     }
 
     /**
