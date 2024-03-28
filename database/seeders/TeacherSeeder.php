@@ -15,17 +15,17 @@ class TeacherSeeder extends Seeder
     {
         Teacher::create([
             'name' => "Md Omar Faruk",
-            'department_id' => 5,
+            'department_id' => 1,
             'address' => "DHK"
         ]);
         Teacher::create([
             'name' => "Md Nasir Uddin",
-            'department_id' => 6,
+            'department_id' => 2,
             'address' => "CTG"
         ]);
         Teacher::create([
             'name' => "Md Talha",
-            'department_id' => 7,
+            'department_id' => 3,
             'address' => "CUM"
         ]);
     }
