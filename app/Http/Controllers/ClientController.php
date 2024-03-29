@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreClientRequest;
+use App\Models\client;
 use App\Models\upazilas;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Http\Request;
@@ -14,14 +15,17 @@ class ClientController extends Controller
 {
     public function showClients()
     {
-        $clients = DB::table('clients')->orderBy('id')->cursorPaginate(10);
+        //$clients = DB::table('clients')->orderBy('id')->cursorPaginate(10);
+
+        $clients = client::orderBy('id')->cursorPaginate(10);
 
         return view('allclients', ['data' => $clients]);
     }
 
     public function showClient($id)
     {
-        $client = DB::table('clients')->find($id);
+        //$client = DB::table('clients')->find($id);
+        $client = client::findorfail($id);
 
         return view('viewclient', ['data' => $client]);
     }

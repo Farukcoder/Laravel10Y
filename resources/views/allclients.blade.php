@@ -30,22 +30,24 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($data as $id => $client)
-                <tr>
-                    <th scope="row">{{ $loop->iteration }}</th>
-                    <td>{{ $client->name }}</td>
-                    <td>{{ $client->age }}</td>
-                    <td>{{ $client->city }}</td>
-                    <td>{{ $client->email }}</td>
-                    <td>
-                        <a href="{{ route('view.client', $client->id) }}" class="btn btn-info btn-sm">View</a>
+            @foreach ($data->chunk(3) as $chunk)
+                @foreach($chunk as $id => $client)
+                    <tr>
+                        <th scope="row">{{ ++$id }}</th>
+                        <td>{{ $client->name }}</td>
+                        <td>{{ $client->age }}</td>
+                        <td>{{ $client->city }}</td>
+                        <td>{{ $client->email }}</td>
+                        <td>
+                            <a href="{{ route('view.client', $client->id) }}" class="btn btn-info btn-sm">View</a>
 
-                        <a href="{{ route('client.delete', $client->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="{{ route('client.delete', $client->id) }}" class="btn btn-danger btn-sm">Delete</a>
 
-                        <a href="{{ route('edit.client', $client->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                    </td>
-                </tr>
+                            <a href="{{ route('edit.client', $client->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        </td>
+                    </tr>
                 @endforeach
+            @endforeach
 
             </tbody>
         </table>
