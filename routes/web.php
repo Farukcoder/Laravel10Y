@@ -102,10 +102,7 @@ Route::get('/raw_data', [ClientController::class, 'rawData']);
 //]);
 
 
-Route::resource('employees', EmployeeController::class)->names([
-    'create' => 'employees.build',
-    'index' => 'employees.index'
-]);
+Route::resource('employees', EmployeeController::class);
 
 Route::get('/products', function () {
    return \App\Models\Product::all();

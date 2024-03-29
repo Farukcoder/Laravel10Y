@@ -14,14 +14,40 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $client = DB::table('clients')
-                    ->select('name', 'email');
-        $data = DB::table('employees')
-            ->union($client)
-            ->select('name', 'email')
-            ->get();
+        //$employees = Employee::all();
+        //$employees = Employee::find([2,3], ['name', 'email']);
+        //$employees = Employee::max('age');
+        //$employees = Employee::min('age');
+        //$employees = Employee::sum('age');
+        //$employees = Employee::where('city', 'Darentown')->where
+        //('age', '>', 17)->get();
+        //$employees = Employee::whereAge(19)->get();
 
-            return $data;
+        //$employees = Employee::whereCity('Darentown')
+        //                    ->whereAge(19)
+        //                    ->select('name', 'email')
+        //                    ->toSql();
+
+        //$employees = Employee::whereCity('Darentown')
+        //                    ->whereAge(19)
+        //                    ->select('name', 'email')
+        //                    ->dd();
+
+        //$employees = Employee::whereCity('Darentown')
+        //                    ->whereAge(19)
+        //                    ->select('name', 'email')
+        //                    ->toRawSql();
+
+        $employees = Employee::whereCity('Darentown')
+                            ->whereAge(19)
+                            ->select('name', 'email')
+                            ->ddRawSql();
+
+
+
+        return $employees;
+
+        return view('employee', compact('employees'));
     }
 
     /**
